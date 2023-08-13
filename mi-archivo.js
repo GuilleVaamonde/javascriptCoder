@@ -1,4 +1,135 @@
-class Datos {
+class Usuario {
+    constructor(nombre, apellido, localidad, email) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.localidad = localidad;
+        this.email = email;
+        /* this.suscrito = true; */ //para q nos indique si quiere correos o no//
+    }
+}
+
+const form = document.getElementById("registro");
+const listaUsuarios = document.getElementById("listaUsuario");
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const apellido = document.getElementById("apellido").value;
+    const localidad = document.getElementById("localidad").value;
+    const email = document.getElementById("email").value;
+
+    if (nombre && apellido && (localidad || email)) {
+        const usuario = new Usuario(nombre, apellido, localidad, email);
+        localStorage.setItem("usuario", JSON.stringify(usuario));
+        agregarUsuarioALista(usuario);
+    }
+
+    document.getElementById("nombre").value = "";
+    document.getElementById("apellido").value = "";
+    document.getElementById("localidad").value = "";
+    document.getElementById("email").value = "";
+});
+
+function agregarUsuarioALista(usuario) {
+    const nuevoUsuarioItem = document.createElement("li");
+    nuevoUsuarioItem.innerHTML = ` Datos de usuario: 
+        ${usuario.nombre} ${usuario.apellido} | ${usuario.localidad} | ${usuario.email}
+        <button class="eliminarBtn">Eliminar</button>`;
+    
+    nuevoUsuarioItem.querySelector(".eliminarBtn").addEventListener("click", () => {
+        nuevoUsuarioItem.remove(); // para eliminar usuarios
+    });
+
+    listaUsuarios.appendChild(nuevoUsuarioItem);
+}
+
+
+
+
+/* let nombre = document.getElementById("nombre")
+let apellido = document.getElementById("apellido")
+let localidad = document.getElementById("localidad")
+let email = document.getElementById("email")    */ 
+
+/* class Usuario {
+    constructor(nombre,apellido,localidad,email){
+        this.nombre =nombre,
+        this.apellido = apellido,
+        this.localidad = localidad,
+        this.email = email
+    }
+}
+let form =  document.getElementById("registro");
+const listaUsuarios = document.getElementById("listaUsuario");
+
+form.addEventListener("submit", (e) => {
+e.preventDefault()
+
+let nombre = document.getElementById("nombre").value
+let apellido = document.getElementById("apellido").value
+let localidad = document.getElementById("localidad").value
+let email = document.getElementById("email").value
+
+if (nombre && apellido && localidad || email) {
+let usuario = new Usuario(nombre, apellido,localidad,email) 
+function agregarUsuarioALista(usuario) {
+    const nuevoUsuarioItem = document.createElement("li");
+    nuevoUsuarioItem.innerHTML = `${usuario.nombre} ${usuario.apellido} - ${usuario.localidad} - ${usuario.email} - Suscrito: ${usuario.suscrito ? 'Sí' : 'No'}`;
+}
+localStorage.setItem("usuario", JSON.stringify(usuario) )  
+
+agregarUsuarioALista(usuario);
+}
+function agregarUsuarioALista(usuario) {
+    const nuevoUsuarioItem = document.createElement("li");
+    nuevoUsuarioItem.innerHTML = `${usuario.nombre} ${usuario.apellido} - ${usuario.localidad} - ${usuario.email} - Suscrito: ${usuario.suscrito ? 'Sí' : 'No'}`;
+}
+const agregarUsuario = () =>{
+    const usuario = input.value;
+    usuarios.push(usuario);
+    input.value="";
+}
+const mostrarUsuarios = () => {
+    usuarios.forEach((usuario,index)=>{
+        listaUsuarios.innerHTML +=`
+        <li>
+        <span>${usuario}</span>
+        </li>
+        `;
+    });
+    
+        
+        
+    
+}
+
+
+document.getElementById("nombre").value = " "
+document.getElementById("apellido").value = " "
+document.getElementById("localidad").value = " "
+document.getElementById("email").value = " "
+}) */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* class Datos {
     constructor(nombre, fecha) {
         this.nombre = nombre ;
         this.fecha = fecha ;
@@ -18,7 +149,7 @@ for (let i = ''; i <= 1; i++) {
     alert(resultado.nombre  + ' naciste el ' + resultado.fecha);
 
 }
-
+ */
 /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 

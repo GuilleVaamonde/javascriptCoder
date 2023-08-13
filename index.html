@@ -4,14 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript</title>
-    <script src="mi-archivo.js"></script>
+    <title>Dale Bo! Remeras</title>
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
-    <H1>Javascript</H1>
-
-
+    <div class="contenedorForm"></section>
+    <H1>Te esperabamos!</H1>
+    <h6>Ingresa tus datos y mantenete informado/a:</h6>
+    <div >
+    <form id="registro">
+        <label for="">Nombre:</label><input type="text" name="nombre" id="nombre" placeholder="Tu nombre aqui" required>
+        <label for="">Apellido:</label><input type="text" name="apellido" id="apellido" placeholder="Tu apellido aqui" required>
+        <label for="">Localidad:</label><input type="text" name="localidad" id="localidad" placeholder="Tu localidad aqui" required>
+        <label for="">Email:</label><input type="email" name="email" id="email" placeholder="Tu correo aqui">
+        <label for="">Acepto recibir correos con promociones</label><input type="checkbox" name="checkbox" id="checkbox"> 
+        <input type="submit" id="btn" name="btn" value="Enviar">
+    </form>
+    <ul id="listaUsuario"></ul>
+</div></div>
+    <script src="mi-archivo.js"></script>
 </body>
 
 </html>
