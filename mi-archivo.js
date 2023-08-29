@@ -111,7 +111,6 @@ const productosData = [
         "count": 430
         }
         },
-    // ... (rest of the products)
 ];
 const productosDiv = document.getElementById("productos");
 
